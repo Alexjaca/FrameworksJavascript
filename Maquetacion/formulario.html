@@ -5,22 +5,6 @@
     <title>Master Frameworks JavaScript</title>
     <link rel="stylesheet" href="assets/css/slyles.css"/>
 
-    <script type="text/javascript">
-
-        window.addEventListener("load", function(){
-            var template = document.getElementById("article-template");
-            var articles = document.getElementById("articles");
-
-            for(var i=1; i<=5; i++){
-                var clonado = template.cloneNode(true);
-                clonado.removeAttribute("id");
-                var h2 = clonado.getElementsByTagName("h2")[0];
-                h2.innerHTML= h2.textContent + ' ' +i;
-                articles.appendChild(clonado);
-        }
-        })
-    </script>
-
 </head>
     <body>
         <header id="header">
@@ -59,33 +43,33 @@
             </div>
         </header>
 
-        <div id="slider" class="slider-big">
-            <h1>Bienvenidos al Master en Frameworks en JavaScript</h1>
-            <a href="blog.html" class="btn-white">Ir al Blog</a>
-        </div>
-
         <div class="center">
             <section id="content">
-                <h2 class="subheader">Ultimos Articulos</h2>
-                <!--LISTADO DE ARTICULOS-->
+            
+                <h1 class="subheader">Formulario</h1>
 
-                <div id="articles">
-                    <article class="article-item" id="article-template">
-                        <div class="image-wrap">
-                            <img src="https://blog.desafiolatam.com/wp-content/uploads/2019/04/react-galaxia.png" alt="paisaje"/>
-                        </div>
-        
-                        <h2>Articulo de pueba</h2>
-                        <span class="date">
-                            Hace 5 minutos
-                        </span>
-                        <a href="#">Leer mas</a>
-                         <!--LIMPIAR FLOTADOS-->
-                        <div class="clearfix"></div>
-                    </article>
-                
-                    <!--ARTICULOS VIA JS-->
-                </div>
+                <form action="" class="mid-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" name="apellidos"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Biografia</label>
+                        <textarea name="bio"></textarea>
+                    </div>
+                    <div class="form-group radibuttons">
+                        <input type="radio" name="genero" value="hombre"/>Hombre
+                        <input type="radio" name="genero" value="mujer"/>Mujer
+                        <input type="radio" name="genero" value="otro"/>Otro
+                    </div>
+                    <div class="clearfix"></div>
+                    <input type="submit" value="Enviar" class="btn btn-success">
+                </form>
+         
             </section>
 
             <aside id="sidebar">
