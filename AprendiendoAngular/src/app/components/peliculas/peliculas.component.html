@@ -1,2 +1,22 @@
-<h1>peliculas works!</h1>
-<hr/>
+<h1 class="subheader">Primera Pelicula {{peliculas[0].title}}</h1>
+<hr />
+
+<h1 class="subheader">Listado de Peliculas</h1>
+<hr />
+
+<div id="articles">
+    <article class="article-item" id="article-template" *ngFor=" let pelis of peliculas; let i = index;">
+        <div class="image-wrap">
+            <img src="{{pelis.image}}" alt="{{pelis.title}}" />
+        </div>
+
+        <h2>{{i}} ) {{pelis.title}}</h2>
+        <span class="date">
+            Hace 5 minutos
+        </span>
+        <a href="#">Leer más</a>
+
+        <div class="clearfix"></div>
+    </article>
+
+</div>

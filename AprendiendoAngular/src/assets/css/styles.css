@@ -95,8 +95,10 @@ body {
 }
 
 
-#menu a:hover{
-    color: #f13e3e;
+#menu a:hover,
+.active{
+    color: #f13e3e !important;
+    font-weight: bold;
 }
 
 #slider{

@@ -22,7 +22,8 @@ const appRoutes: Routes = [
     {path: 'blog', component: BlogComponent},
     {path: 'formulario', component: FormularioComponent},
     {path: 'peliculas', component: PeliculasComponent},
-    {path: 'pagina-de-pruebas', component: PruebasComponent},
+    {path: 'pagina-de-pruebas', component: PaginaComponent},//sin parametros
+    {path: 'pagina-de-pruebas/:nombre/:apellidos', component: PaginaComponent},
 //Importarte esta ruta debe agregarsae de ultima  para que funcionen las demas '**' es cuando la ruta no existe
     {path: '**', component: ErrorComponent}
 ];

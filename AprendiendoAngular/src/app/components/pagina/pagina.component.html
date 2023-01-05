@@ -1,1 +1,9 @@
-<p>pagina works!</p>
+<h1 class="subheader">Pagina de Prueba</h1>
+
+<div *ngIf="nombre && apellidos"> <!--condicional *nghIF para condicionar elementos html-->
+    <h2 class="subheader">El nombre enviado por parametro es= {{nombre}}</h2>
+    <h2 class="subheader">Los apellidos enviados por parametro son= {{apellidos}}</h2>
+</div>
+
+<button (click)="redireccion()">Accion redireccion</button>
+
