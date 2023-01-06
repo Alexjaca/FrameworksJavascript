@@ -1,0 +1,27 @@
+<article class="article-item" id="article-template">
+    <div class="image-wrap">
+        <img src="{{pelis.image}}" alt="{{pelis.title}}" />
+    </div>
+
+    <h2> {{pelis.title}}</h2>
+
+    <span class="date">
+        Hace 5 minutos
+    </span>
+    
+    <!--llamando stilos css con [ngClass]-->
+    <!----PUEDE SER TAMBIEN ASI [class.year-green]= "pelis.year > 2016" [class.year-red]= "pelis.year < 2016"----->
+    <span class="year" [ngClass]="{'year-green' : pelis.year > 2016,
+                                    'year-red' : pelis.year < 2016
+                                }">
+        {{pelis.year}}
+    </span>
+
+    <a href="#">Leer más</a>
+    <!--Pasando parametros por una funcion al componente de pelicula-->
+    <button (click)="seleccionar($event, pelis)">
+        Seleccionar como Favorita
+    </button>
+
+    <div class="clearfix"></div>
+</article>

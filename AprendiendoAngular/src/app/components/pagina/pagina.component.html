@@ -1,16 +1,31 @@
-<h1 class="subheader">Pagina de Prueba</h1>
 
-<!--condicional *nghIF  y else con ng-template para condicionar elementos html-->
-<div *ngIf="nombre && apellidos; then siHayParametros else noHayParametros"></div>
+<app-slider
+[nombre]="'Pagina de Prueba'"
+></app-slider>
 
-<ng-template #siHayParametros> <!--ng-template se activa en el then del div anterior-->
-    <h2 class="subheader">El nombre enviado por parametro es= {{nombre}}</h2>
-    <h2 class="subheader">Los apellidos enviados por parametro son= {{apellidos}}</h2>
-</ng-template>
+<div class="center">
+<section id="content">
 
-<ng-template #noHayParametros> <!--ng-template se activa en el else del div anterior-->
-    <h2 class="subheader">NO HAY PARAMETROS A MOSTRAR DESDE LA URL</h2>
-</ng-template>
+    <h1 class="subheader">Pagina de Prueba</h1>
 
-<button (click)="redireccion()">Accion redireccion</button>
+    <!--condicional *nghIF  y else con ng-template para condicionar elementos html-->
+    <div *ngIf="nombre && apellidos; then siHayParametros else noHayParametros"></div>
+    
+    <ng-template #siHayParametros> <!--ng-template se activa en el then del div anterior-->
+        <h2 class="subheader">El nombre enviado por parametro es= {{nombre}}</h2>
+        <h2 class="subheader">Los apellidos enviados por parametro son= {{apellidos}}</h2>
+    </ng-template>
+    
+    <ng-template #noHayParametros> <!--ng-template se activa en el else del div anterior-->
+        <h2 class="subheader">NO HAY PARAMETROS A MOSTRAR DESDE LA URL</h2>
+    </ng-template>
+    
+    <button (click)="redireccion()">Accion redireccion</button>
+
+</section>
+<app-sidebar></app-sidebar>
+
+</div>
+
+
 

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent {
+  
+  public title!: string;
+
+  constructor(){
+    this.title ="BIENVENIDO AL BLOG";
+  }
 
 }
