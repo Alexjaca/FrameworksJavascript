@@ -8,8 +8,9 @@
             <h1 class="subheader">
                 Pelicula Favorita
             </h1>
-            <h2>{{favorita.title}}</h2>
-            <h3>{{favorita.year}}</h3>
+            <h2>{{favorita.title | uppercase}}</h2>  <!--Pipes son varios se agregan asi (|)-->
+            <h3>{{favorita.year | espar}}</h3> <!--Pipes personalizadas /pipes/espar.pipe.ts (|)-->
+            <h3>Usando Pipes en Fecha = {{this.fechaPrueba | date: 'dd/MM/yyyy'}}</h3> <!--Pipes son varios se agregan asi (|)-->
 
         </div>
 

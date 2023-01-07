@@ -10,6 +10,7 @@ export class PeliculasComponent implements OnDestroy, OnInit{
   
   public peliculas!: Array<Pelicula>;
   public favorita!: Pelicula;
+  public fechaPrueba : any;
 
   constructor(){
 
@@ -22,6 +23,8 @@ export class PeliculasComponent implements OnDestroy, OnInit{
     //OTRA FORMA DE PASAR PARAMERTROS------------------
       {year: 2010, title: "Mario Bros", image: "https://i.ytimg.com/vi/DmCZoiCp5C0/maxresdefault.jpg"}
     ];
+
+    this.fechaPrueba = new Date(2023,9,21);
 
   }
   ngOnInit(): void {
