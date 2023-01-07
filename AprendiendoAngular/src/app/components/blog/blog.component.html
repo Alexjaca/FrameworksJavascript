@@ -8,6 +8,27 @@
 
     <h1 class="subheader">blog</h1>
 
+
+    <div id="articles">
+      <article class="article-item" id="article-template" *ngFor="let articulo of article">
+          <div class="image-wrap">
+            <!--cargando la Imagen desde la ruta si la iomagen existe-->
+              <img src="{{url + 'get-image/' +articulo.image}}" alt="{{articulo.title}}" *ngIf="articulo.image" />
+               <!--Si no existe carga una imagen por defecto-->
+              <img src="assets/images/nofound.jpg" alt="{{articulo.title}}" *ngIf="!articulo.image" /> 
+          </div>
+
+          <h2>{{articulo.title}}</h2>
+          <span class="date">
+            {{articulo.Date | date: 'short'}}
+          </span>
+          <a href="#">Leer más</a>
+
+          <div class="clearfix"></div>
+      </article>
+
+  </div>
+
   </section>
   <app-sidebar></app-sidebar>
   

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders } from './app.routing'; // para trabajar con rutas
 import { FormsModule } from '@angular/forms'; //Para usarlo en formularios con angular
+import { HttpClientModule } from '@angular/common/http'; // Para poder hacer peticiones Ajax en Angular
 
 import { AppComponent } from './app.component';
 import { MiComponente } from './components/mi-conponent/mi-component.component';
@@ -40,7 +41,8 @@ import { EsParPipe } from './pipes/espar.pipe'; // el pipe personalizado
   imports: [
     BrowserModule,
     routing,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
