@@ -22,6 +22,7 @@ export class BlogComponent implements OnInit{
   ngOnInit(): void {
     this.url = Global.url;
    //console.log(this._articleService.pruebas());
+   
    this._articleService.getArticles().subscribe(    //suscribe recibe los datos desde http
     	response =>{
         console.log(response.articles);

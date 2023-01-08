@@ -1,0 +1,47 @@
+
+<div class="center">
+  <section id="content">
+
+    <h1 class="subheader">Crear Nuevo Articulo</h1>
+
+    <form class="mid-form">
+      <div class="form-group">
+        <label for="nombre">Nombre</label><!--Directiva Multidireccional-->
+        <input type="text" name="nombre" required 
+        pattern="[a-zA-Z ]+"/>
+      </div>
+
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="apellidos" required 
+        pattern="[a-zA-Z ]+"/>
+
+       <!-- <small *ngIf="!apellidos.valid && apellidos.touched">
+          Debe Ingresar un Apellido Valido!!!
+        </small>
+        -->
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Biografia</label>
+        <textarea name="bio"  required></textarea>
+
+      </div>
+
+      <div class="form-group radibuttons">
+        <input type="radio" name="genero" value="hombre" required /> Hombre
+        <input type="radio" name="genero" value="mujer" /> Mujer
+        <input type="radio" name="genero" value="otro" /> Otro
+
+      </div>
+
+      <div class="clearfix"></div>
+
+      <input type="submit" value="Enviar" class="btn btn-success">
+
+    </form>
+  </section>
+
+  <app-sidebar></app-sidebar>
+
+</div>

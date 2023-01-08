@@ -1,0 +1,28 @@
+<div class="loading" *ngIf="!articles">
+  <img src="assets/images/loading.gif">
+  <h3>Cargando....</h3>   
+</div>
+
+<div class="loading" *ngIf="articles && articles.length == 0">
+  <img src="assets/images/404.png">
+  <h3>No Existen Articulos relacionados con la busqueda</h3>   
+</div>
+
+<div id="articles" *ngIf="articles">
+    <article class="article-item" id="article-template" *ngFor="let articulo of articles">
+        <div class="image-wrap">
+          <!--cargando la Imagen desde la ruta si la iomagen existe-->
+            <img src="{{url + 'get-image/' +articulo.image}}" alt="{{articulo.title}}" *ngIf="articulo.image" />
+             <!--Si no existe carga una imagen por defecto-->
+            <img src="assets/images/nofound.jpg" alt="{{articulo.title}}" *ngIf="!articulo.image" /> 
+        </div>
+
+        <h2>{{articulo.title}}</h2>
+        <span class="date">
+          {{articulo.Date | amLocale: 'es' | amTimeAgo}}
+        </span>
+        <a [routerLink]="['/blog/articulo', articulo._id]">Leer más</a>
+
+        <div class="clearfix"></div>
+    </article>
+</div>

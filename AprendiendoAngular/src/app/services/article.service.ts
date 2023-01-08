@@ -21,11 +21,26 @@ export class ArticleService {
         return "Soy el Servicio de articulos (ArticleService)";
     }
 
-    getArticles():Observable<any>{          // Debo poner el Observable para poder recibir respuestas
-        return this._http.get(this.url +'articles');     //Retonando los Json por ajax a travez del metodo http
+
+    getArticles(last:any = null):Observable<any>{      // Debo poner el Observable para poder recibir respuestas
+
+        var articles = 'articles';
+        if(last != null){
+            var articles = 'articles/true';
+        }
+        return this._http.get(this.url +articles);     //Retonando los Json por ajax a travez del metodo http
     }
 
 
+    getArticle(articleId = ""):Observable<any>{
+        return this._http.get(this.url+'article/'+articleId);
+        
+    }
+
+
+    search(searchString = ""):Observable<any>{
+        return this._http.get(this.url + 'search/' + searchString);
+    }
 
 }
 

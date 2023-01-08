@@ -1,17 +1,17 @@
 <app-slider
-  [nombre]="'BLOG ANGULAR'"
+  [nombre]="'Buscando: ' + search"
   [size]="'small'"
 ></app-slider>
 
 <div class="center">
   <section id="content">
 
-    <h1 class="subheader">blog</h1>
+    <h1 class="subheader">Articulos encontrados</h1>
 
     <app-articles
-    [articles]="article">
+    [articles]="articless">
 
-    </app-articles>
+    </app-articles> 
 
   </section>
   <app-sidebar></app-sidebar>
