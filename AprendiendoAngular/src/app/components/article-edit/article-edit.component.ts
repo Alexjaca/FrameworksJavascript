@@ -3,24 +3,22 @@ import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Global } from 'src/app/services/global';
-import swal from 'sweetalert2';
-
-
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-article-new',
-  templateUrl: './article-new.component.html',
-  styleUrls: ['./article-new.component.css'],
+  selector: 'app-article-edit',
+  templateUrl: '../article-new/article-new.component.html',
+  styleUrls: ['./article-edit.component.css'],
   providers: [ArticleService]
 })
 
-export class ArticleNewComponent implements OnInit{
-
+export class ArticleEditComponent implements OnInit{
+  
   public article: Article;
   public status!: string;
+  public is_edit : boolean;
   public page_title : string;
   public url: string;
-  public is_edit : boolean;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
   //configuracion del componente de angular para subir imagenes (angulas-file-uploader)
@@ -48,51 +46,63 @@ export class ArticleNewComponent implements OnInit{
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
 constructor( private _articleService: ArticleService,
             private _route : ActivatedRoute,
             private _router : Router
           ){
 
   this.article = new Article('','','','',null);
-  this.page_title = "Crear Articulo";
+  this.is_edit = true;
+  this.page_title = "Editar Articulo";
   this.url = Global.url;
-  this.is_edit = false;
 
 }
-
+  
   ngOnInit(): void {
-    
+
+    this.getArticle(); /// Llamando a cargartse esta funcion al iniciar
     
   }
 
   onSubmit(){
     //console.log(this.article);
-    this._articleService.create(this.article).subscribe(
+    this._articleService.update(this.article._id, this.article).subscribe(
       response =>{
         if(response.status == 'success'){
           this.article = response.article;
+          //console.log(response);
+          this._router.navigate(['/blog/articulo/', this.article._id]);
 
           //Alerta Libreria sweetalert de Angular
-          swal.fire(
-              'Articulo creado!!!',
-              'El Articulo se a creado correctamente',
-              'success'
-          );
-
-          //console.log(response);
-          this._router.navigate(['/blog']);
+          Swal.fire(
+            'Articulo Editado!!!',
+            'El Articulo se a editado correctamente',
+            'success'
+        );
 
         }else{
           this.status = 'Error';
+
+          //Alerta Libreria sweetalert de Angular
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El Articulo no pudo editarse!'
+          })
+
         }
 
       },
       error => {
         console.log(error);
         this.status = 'Error';
+
+        //Alerta Libreria sweetalert de Angular
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El Articulo no pudo editarse!'
+        })
       }
     );
   }
@@ -102,9 +112,30 @@ constructor( private _articleService: ArticleService,
     //alert(data.body.image);
     this.article.image = data.body.image;
     //console.log(data.body.image);
-
-
   }
 
-  
+  getArticle(){
+    this._route.params.subscribe(params => {
+      let id = params['id'];
+
+      this._articleService.getArticle(id).subscribe(
+        response => {
+          if (response.article) {
+            this.article = response.article;
+            console.log(this.article);
+          } else {
+            this._router.navigate(['/home']);
+          }
+        },
+        error => {
+          console.log(error);
+          this._router.navigate(['/home']);
+        }
+
+      );
+
+    });
+  }
+
+
 }

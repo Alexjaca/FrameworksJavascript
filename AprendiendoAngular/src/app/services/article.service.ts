@@ -42,6 +42,25 @@ export class ArticleService {
         return this._http.get(this.url + 'search/' + searchString);
     }
 
+    create(article : Article):Observable<any>{
+        //let params = JSON.stringify(article); //convirtiendo article (Objeto javascript) a objeto JSON String  para guiardarlo
+        //let headers = new HttpHeaders().set('Content-Type', 'application-json'); //configurar cabeceras en este caso el content-type
+        
+        //return this._http.post(this.url + 'save', params, {headers: headers});
+        return this._http.post(this.url + 'save', article);
+    }
+
+    update(id:any, article : Article):Observable<any>{
+        return this._http.put(this.url + 'article/' + id, article);
+    }
+
+    delete(id:any):Observable<any>{
+        return this._http.delete(this.url + 'article/' + id);
+    }
+
+    
 }
+
+
 
 

@@ -3,6 +3,7 @@ import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Global } from 'src/app/services/global';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-article',
@@ -50,5 +51,42 @@ export class ArticleComponent implements OnInit {
     });
 
   }
+
+  delete(id:any){
+   
+    Swal.fire({
+      title: 'Seguro deseas eliminar el Articulo '+ this.articleD.title + '?',
+      text: "Si lo haces borraras el articulo del sistema",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, estoy seguro!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Articulo ' + this.articleD.title + ' Eliminado!!',
+          'El Articulo fue eliminado con exito.',
+          'success'
+        )
+
+        this._articleservice.delete(id).subscribe(
+          response =>{
+            this._router.navigate(['/blog']);
+          },
+          error =>{
+            console.log(error);
+            this._router.navigate(['/blog']);
+          }
+        );
+
+      }
+    })
+
+      
+   
+        
+
+  } 
 
 }

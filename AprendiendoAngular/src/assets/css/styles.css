@@ -256,6 +256,12 @@ body {
     margin-top: 30px;
 }
 
+.btn.up_btn.afu-attach-pin{
+    display: block !important;
+    width: 100% !important;
+    max-width: 90% !important;
+    margin-top: 15px;
+}
 
 
 .mid-form{
@@ -273,6 +279,7 @@ body {
 }
 
 input[type="text"],
+input[type="file"],
 textarea{
     width: 100%;
     min-height: 30px;
@@ -335,6 +342,11 @@ textarea{
 
 .article-item .image-wrap img{
     height: 100%;
+    text-align: center;
+}
+
+.image-edit img{
+    width: 150px !important;
     text-align: center;
 }
 
