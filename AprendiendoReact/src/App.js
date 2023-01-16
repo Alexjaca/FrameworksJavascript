@@ -1,47 +1,28 @@
-import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 
 //Importando componentes
-import MiComponente from './components/MiComponente';
-import Peliculas from './components/Peliculas';
 import AppHeader from './components/AppHeader';
+import AppSlider from './components/AppSlider';
+import AppSidebar from './components/AppSidebar';
+import AppFooter from './components/AppFooter';
+import SeccionPruebas from './components/SeccionPruebas';
 
-
-
-
-
-function HolaMundo(nombre, edad){
-  var presentacion = <div>
-                      <h2>Hola, soy {nombre}</h2>
-                      <h1>Tengo  {edad} años</h1>
-                      </div>;
-  return presentacion;
-}
 
 function App() {
-  var nombre = 'Alex Cardenas';
-  var edad = 37;
 
   return (
     <div className="App">
-      <AppHeader/>
-      
+      <AppHeader />
+      <AppSlider />
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {HolaMundo(nombre, edad)}
+      <div className="center">
+        <SeccionPruebas/>
+        
+        <AppSidebar />
+        <div className="clearfix"></div>
+      </div> {/*FIN DEL DIV CENTER*/}
+     <AppFooter/>
 
-        <section className='componentes'>
-          <MiComponente/>
-          <Peliculas/>
-       
-
-        </section>
-
-      </header>
     </div>
   );
 }
