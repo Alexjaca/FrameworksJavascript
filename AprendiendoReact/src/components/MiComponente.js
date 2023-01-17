@@ -21,7 +21,7 @@ class MiComponente extends Component {
                 <ol> 
                     {
                         receta.ingredientes.map((ingrediente, i) => {
-                            console.log(ingrediente);
+                            //console.log(ingrediente);
                             return (
                                 <li key={i}>
                                     {ingrediente}

@@ -86,8 +86,10 @@ body {
 }
 
 
-#menu a:hover{
-  color: #3cb2d3;
+#menu a:hover,
+.active{
+  color: #3cb2d3 !important;
+  font-weight: bold;
 }
 
 #slider{

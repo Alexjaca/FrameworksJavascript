@@ -5,19 +5,23 @@ import AppHeader from './components/AppHeader';
 import AppSlider from './components/AppSlider';
 import AppSidebar from './components/AppSidebar';
 import AppFooter from './components/AppFooter';
-import SeccionPruebas from './components/SeccionPruebas';
+import Peliculas from './components/Peliculas';
+
 
 
 function App() {
 
+  var ButtonString = "Ir al blog";
+
   return (
     <div className="App">
       <AppHeader />
-      <AppSlider />
+      <AppSlider title = "Bienvenido al Curso de React con Víctor Robles de victorroblesweb.es"
+                  MsgButton = {ButtonString} />
 
       <div className="center">
-        <SeccionPruebas/>
         
+        <Peliculas/>
         <AppSidebar />
         <div className="clearfix"></div>
       </div> {/*FIN DEL DIV CENTER*/}
