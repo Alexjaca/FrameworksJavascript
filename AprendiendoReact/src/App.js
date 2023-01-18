@@ -5,7 +5,8 @@ import AppHeader from './components/AppHeader';
 import AppSlider from './components/AppSlider';
 import AppSidebar from './components/AppSidebar';
 import AppFooter from './components/AppFooter';
-import Peliculas from './components/Peliculas';
+//import Peliculas from './components/Peliculas';
+import Router from './Router';
 
 
 
@@ -21,7 +22,10 @@ function App() {
 
       <div className="center">
         
-        <Peliculas/>
+        <Router/>
+
+       {/* <Peliculas/>*/}   
+
         <AppSidebar />
         <div className="clearfix"></div>
       </div> {/*FIN DEL DIV CENTER*/}

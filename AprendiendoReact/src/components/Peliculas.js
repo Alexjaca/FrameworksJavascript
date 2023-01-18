@@ -37,14 +37,49 @@ class Peliculas extends Component {
         });
 
     }
+    //CICLOS DE VIDA EN REACT------------------------------------
+    //componentWillUnmount(), SE INICIA ANTES DE CARGAR LA PAGINA
+    componentWillUnmount() {
+        //alert("Aqui se va a montar el componente");
+    }
 
+
+    //CICLOS DE VIDA EN REACT------------------------------------
+    //componentDidMount(), SE INICIA LUEGO DE HABERSE MONTADO LA PAGINA
+    componentDidMount() {
+        //alert("Componente cargado con éxito!!!");
+    }
+
+    //CICLOS DE VIDA EN REACT------------------------------------
+    //componentWillUnmount(), SE INICIA CUNADO ME VOYA  DESMONTAR COMO ES EL CASO DE IR A OTRA RUTA
+    componentWillUnmount() {
+        //alert("Me voy a desmontar");
+    }
+
+
+    //RENDER ES UNO DE ELLOS
     render() {
-        var pStyle= {
+        var pStyle = {
             background: 'green',
             color: 'white',
             padding: '10px'
 
         };
+
+        var favorita;
+        if (this.state.favorita.titulo) {
+            favorita = (
+                <p className='favorita' style={pStyle}>
+                    <strong>La Pelicula Favorita es: </strong>
+                    <span>{this.state.favorita.titulo}</span>
+                </p>
+            );
+
+        } else {
+            favorita = (
+                <p>NO HAY PELICULA A MOSTRAR</p>
+            );
+        }
 
         return (
             <div id='content' className='peliculas'>
@@ -56,15 +91,23 @@ class Peliculas extends Component {
                     </button>
                 </div>
 
-                {/* SIMILAR A LA CONDICION ngIf de ANGULAR CUANDO (this.state.favorita.titulo) EXISTA EJECUTA  */}
-                {this.state.favorita.titulo &&
+
+                {/* SIMILAR A LA CONDICION ngIf de ANGULAR CUANDO PERO TIENE ELSE (this.state.favorita.titulo) EXISTA EJECUTA  */}
+                {/*SI FUERA SOLO IN IF SIN ELSE SE HACE ASI = "this.state.favorita.titulo &&" */}
+                {
+                   /* this.state.favorita.titulo ? (
 
                         ///*APLICANDO STILOS EN UNA VARIUABLE LOCAL  (pStyle)*/
-                    <p className='favorita' style={pStyle}>
-                        <strong>La Pelicula Favorita es: </strong>
-                        <span>{this.state.favorita.titulo}</span>
-                    </p>
+                       /* <p className='favorita' style={pStyle}>
+                            <strong>La Pelicula Favorita es: </strong>
+                            <span>{this.state.favorita.titulo}</span>
+                        </p>
+                    )
+                        : ( ///*ESTE ES EL ELSE EN REACT*/
+                           /* <p>NO HAY PELICULA A MOSTRAR</p>
+                        )*/             
                 }
+                {favorita}
 
 
                 {/*CREAR COMPONENTE PELICULA */}
@@ -76,7 +119,7 @@ class Peliculas extends Component {
                                     key={i}
                                     pelicula={pelicula}
                                     marcarFavorita={this.favorita}
-                                    indice = {i}
+                                    indice={i}
                                 />
                             )
                         })
