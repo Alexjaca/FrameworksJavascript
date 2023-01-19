@@ -1,5 +1,6 @@
 import React from "react";
 import ImgError from "../assets/images/404.png";
+import { NavLink } from "react-router-dom";
 
 const Error = () => {
 
@@ -7,9 +8,10 @@ const Error = () => {
         <div id='content'>
             <img src={ImgError} className="img-error" />
             <h1>PAGINA NO ESNCONTRADA</h1>
-            <div >
-                <button id="btn-center" className="btn btn-blue" >IR AL INICIO</button>
-            </div>
+            <NavLink to="/">
+            <button id="btn-center" className="btn btn-blue" >IR AL INICIO</button>
+            </NavLink>
+               
         </div>
     );
 }
