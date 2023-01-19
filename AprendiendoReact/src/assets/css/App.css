@@ -206,10 +206,25 @@ body {
   background:black;
 }
 
+.btn-blue{
+  background: rgb(19, 139, 219);
+}
+
+.btn-blue:hover{
+  background: black;
+}
+
+#btn-center{
+  display: inline;
+
+}
+
 .mid-form{
   width: 50%;
   margin: 0px auto;
 }
+
+
 
 .mid-form label{
   display: block;

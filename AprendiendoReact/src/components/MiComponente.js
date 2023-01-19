@@ -15,6 +15,11 @@ class MiComponente extends Component {
         return (
             //Etiqueta usada para poder retornar varios modulos html
             <React.Fragment>
+                <div id='content'>  
+                {this.props.saludo &&
+                    <h1>{this.props.saludo}</h1>
+                }
+
                 <h1>Hola soy, {name} desde Mi Componente </h1>
                 <h2>{'Nombre de la Receta: ' + receta.nombre}</h2>
                 <h2>ingredientes: </h2>
@@ -31,6 +36,7 @@ class MiComponente extends Component {
                     }
                 </ol>
                 <h2>{'Calorias: ' + receta.calorias}</h2>
+                </div>
             </React.Fragment> //Lo recomendable es usar un div
 
         );

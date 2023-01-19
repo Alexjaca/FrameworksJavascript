@@ -1,30 +1,93 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 
 import SeccionPruebas from './components/SeccionPruebas';
 import MiComponente from './components/MiComponente';
 import Peliculas from './components/Peliculas';
+import Error from './components/Error';
 
 class Router extends Component {
 
     render() {
+
+
         return (
 
-        <BrowserRouter>
+            <BrowserRouter>
+                <Routes>
 
-            {/*CONFIGURAR RUTAS Y PAGINAS */ }
-            <Switch>
-                <Route exact path="/" Component = {Peliculas} />
-                <Route exact path="/ruta-prueba" Component = {SeccionPruebas} />
-                <Route exact path="/segunda-ruta" Component = {MiComponente} />
+                    {/*CONFIGURAR RUTAS Y PAGINAS */}
 
-            </Switch>
-        
-        </BrowserRouter >
+                    <Route path="/" element={<Peliculas />} />
+                    <Route path="/ruta-prueba" element={<SeccionPruebas />} />
+                    <Route path="/segunda-ruta" element={<MiComponente />} />
+
+
+                    {/*-----RUTA SIN COMPONENTE CREADO --------*/}
+                    <Route path="/pagina-1" element={
+                        <React.Fragment>
+                            <h1>Hola mundo desde la ruta /pagina-1</h1>
+                            <MiComponente saludo="SALUDO ENVIADO DESDE LAS RUTAS *******************************" />
+                        </React.Fragment>
+                    } />
+                    {/*-----RUTA SIN COMPONENTE CREADO --------*/}
+
+
+                    {/*-----RUTA SIN COMPONENTE PASANDO PARAMETROS (:id)-*/}
+                    <Route path='/parametros/:id' element={<Parametros nombre="Alex Cardenas" />} />
+                    <Route path='/parametros2/:nombre/:apellido?' element={<Parametros2 />} />
+                    {/*-----RUTA SIN COMPONENTE PASANDO PARAMETROS--------*/}
+
+
+
+
+                    <Route path="*" element={<Error />} />
+
+                </Routes>
+
+            </BrowserRouter >
 
         );
     }
 
 }
+
+var Parametros = props => {
+    let params = useParams();
+    return (
+        <div id='content'>
+            <h1>Parametro enviado desde el Componente Parametros enviando el nombre = {props.nombre}</h1>
+            <h3 className='subheader'>Estas intentando ingresar a la ruta 'http://localhost:3000/parametros/{params.id}'</h3>
+        </div>
+    );
+}
+
+
+var Parametros2 = props => {
+    let params = useParams();
+    let siApellidos = (null);
+    let siNombre = (null);
+
+    if (params.nombre) {
+        siNombre = (
+            <h1 className='subheader'> Mi Nombre es {params.nombre}</h1>
+        );
+    }
+
+    if (params.apellido) {
+        siApellidos = (
+            <h1 className='subheader'> Mi apellido es {params.apellido}</h1>
+        );
+    }
+
+    return (
+        <div id='content'>
+            {siNombre}
+            {siApellidos}
+        </div>
+    );
+}
+
+
 
 export default Router;
