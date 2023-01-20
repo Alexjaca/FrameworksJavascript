@@ -18,6 +18,7 @@ body {
   border-top: 5px solid #61dafb;
 }
 
+
 .center{
   width: 75%;
   margin: 0px auto;
@@ -71,12 +72,13 @@ body {
   float:right;
 }
 
-#menu ul li{
+#menu ul li, .active{
   display: inline-block;
   list-style: none;
   height: 46px;
   margin-left: 15px;
   margin-right: 15px;
+  
 }
 
 #menu a{
@@ -86,10 +88,14 @@ body {
 }
 
 
-#menu a:hover,
-.active{
+#menu a:hover{
   color: #3cb2d3 !important;
   font-weight: bold;
+}
+
+.active{
+  font-weight: bold;
+  color: #3cb2d3 !important;
 }
 
 #slider{

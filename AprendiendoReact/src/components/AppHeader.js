@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 import logo from '../assets/images/react.svg';
 
 
-class AppHeader extends Component {
 
+class AppHeader extends Component {
+    
     render() {
         return (
             <header id="header">
@@ -20,31 +21,29 @@ class AppHeader extends Component {
                     {/*<!-- MENU -->*/}
                     <nav id="menu">
                         <ul>
-
+                            
+                            
                             <li>
+                            <NavLink to="/ruta-prueba">prueba</NavLink >
+                            </li>
+                            
+                            
+                            <li>
+                            <NavLink to="/home">Home</NavLink >
+                            </li>
+                            <li>
+                            <NavLink to="/blog">blog</NavLink >
+                            </li>
+                            <li>
+                            <NavLink to="/formulario">Formulario</NavLink >
+                            </li>
+                            <li>
+                            <NavLink to="/pagina-1">Pagina1</NavLink >
+                            </li>
+                            <li>
+                            <NavLink to="/parametros2/Alex">Parametros</NavLink >
+                            </li>   
                            
-                                <NavLink to="/">Inicio</NavLink>
-                               
-                            
-                            </li>
-                            
-                       
-
-                            <li>
-                                <a href="index.html">Inicio</a>
-                            </li>
-                            <li>
-                                <a href="blog.html">Blog</a>
-                            </li>
-                            <li>
-                                <a href="formulario.html">Formulario</a>
-                            </li>
-                            <li>
-                                <a href="#">Pagina 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Pagina 2</a>
-                            </li>
                         </ul>
                     </nav>
 
