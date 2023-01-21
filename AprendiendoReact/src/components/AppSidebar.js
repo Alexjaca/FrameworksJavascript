@@ -5,10 +5,14 @@ class AppSidebar extends Component{
     render(){ 
         return(
             <aside id="sidebar">
-            <div id="nav-blog" className="sidebar-item">
-                <h3>Puedes hacer esto</h3>
-                <a href="#" className="btn btn-success">Crear artículo</a>
-            </div>
+                {/*MUESTRTA EL NAV-BLOG SOLO SI ESTAMOS EN UNA PAGINA QUE NO SEA EL BLOG */}
+                {this.props.isBlog == "true" &&
+                    <div id="nav-blog" className="sidebar-item">
+                    <h3>Puedes hacer esto</h3>
+                    <a href="#" className="btn btn-success">Crear artículo</a>
+                </div>
+                }
+            
 
             <div id="search" className="sidebar-item">
                     <h3>Buscador</h3>

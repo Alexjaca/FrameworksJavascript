@@ -8,7 +8,7 @@ const Error = () => {
         <div id='content'>
             <img src={ImgError} className="img-error" />
             <h1>PAGINA NO ESNCONTRADA</h1>
-            <NavLink to="/">
+            <NavLink to="/home">
             <button id="btn-center" className="btn btn-blue" >IR AL INICIO</button>
             </NavLink>
                

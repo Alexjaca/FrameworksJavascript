@@ -7,11 +7,11 @@ import MiComponente from './components/MiComponente';
 import Peliculas from './components/Peliculas';
 import Error from './components/Error';
 import AppHeader from './components/AppHeader';
-import AppSlider from './components/AppSlider';
 import AppSidebar from './components/AppSidebar';
 import AppFooter from './components/AppFooter';
+import Home from './components/Home';
+import Blog from './components/Blog';
 
-var ButtonString = "Ir al blog";
 
 class Router extends Component {
 
@@ -22,15 +22,11 @@ class Router extends Component {
                 {/*NOS TRAGIMOS HEADER Y DEMAS COMPONENTES A ROUTER PARA PODER USAR NAVLINK EN CADA COMPONENTE QUE SE NECESITE */}
                 <AppHeader />
 
-                <AppSlider title="Bienvenido al Curso de React con Víctor Robles de victorroblesweb.es"
-                    MsgButton={ButtonString} />
-
-                <div className="center">
-
                     <Routes>
                         {/*CONFIGURAR RUTAS Y PAGINAS */}
                         <Route path="/" element={<Peliculas />} />
-                        <Route path="/home" element={<Peliculas />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/blog" element={<Blog />} />
                         <Route path="/ruta-prueba" element={<SeccionPruebas />} />
                         <Route path="/segunda-ruta" element={<MiComponente />} />
 
@@ -52,9 +48,9 @@ class Router extends Component {
                         <Route path="*" element={<Error />} />
                     </Routes>
 
-                    <AppSidebar />
+                    
                     <div className="clearfix"></div>
-                </div> {/*FIN DEL DIV CENTER*/}
+                
                 <AppFooter />
             </BrowserRouter >
 

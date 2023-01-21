@@ -21,13 +21,6 @@ class AppHeader extends Component {
                     {/*<!-- MENU -->*/}
                     <nav id="menu">
                         <ul>
-                            
-                            
-                            <li>
-                            <NavLink to="/ruta-prueba">prueba</NavLink >
-                            </li>
-                            
-                            
                             <li>
                             <NavLink to="/home">Home</NavLink >
                             </li>
