@@ -7,10 +7,10 @@ import MiComponente from './components/MiComponente';
 import Peliculas from './components/Peliculas';
 import Error from './components/Error';
 import AppHeader from './components/AppHeader';
-import AppSidebar from './components/AppSidebar';
 import AppFooter from './components/AppFooter';
 import Home from './components/Home';
 import Blog from './components/Blog';
+import Formulario from './components/Formulario';
 
 
 class Router extends Component {
@@ -27,6 +27,7 @@ class Router extends Component {
                         <Route path="/" element={<Peliculas />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/formulario" element={<Formulario />} />
                         <Route path="/ruta-prueba" element={<SeccionPruebas />} />
                         <Route path="/segunda-ruta" element={<MiComponente />} />
 

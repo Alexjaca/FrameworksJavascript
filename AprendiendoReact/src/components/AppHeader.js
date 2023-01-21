@@ -35,7 +35,10 @@ class AppHeader extends Component {
                             </li>
                             <li>
                             <NavLink to="/parametros2/Alex">Parametros</NavLink >
-                            </li>   
+                            </li> 
+                            <li>
+                            <NavLink to="/">Peliculas</NavLink >
+                            </li>     
                            
                         </ul>
                     </nav>

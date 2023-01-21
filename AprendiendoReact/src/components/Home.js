@@ -15,7 +15,7 @@ class Home extends Component {
                     <div id="content">
                         <h1 className="subheader">ULTIMO ARTICULOS</h1>
                     </div>
-                    <AppSidebar isBlog = "true"/>  
+                    <AppSidebar NavBlog = "true"/>  
                 </div>
             </div> 
         );

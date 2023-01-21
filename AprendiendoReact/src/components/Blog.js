@@ -23,7 +23,7 @@ class Blog extends Component{
                         {/*LISTADO DE ARTICULOS QUE VENDRAN DE LA API REST DE NODE */}
 
                     </div>   
-                    <AppSidebar />  
+                    <AppSidebar isBlog = "true"/>  
                 </div>
                 
             </div> 

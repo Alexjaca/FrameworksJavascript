@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Pelicula from './Pelicula';
+import AppSlider from './AppSlider';
+import AppSidebar from './AppSidebar';
 
 
 class Peliculas extends Component {
@@ -82,53 +84,64 @@ class Peliculas extends Component {
         }
 
         return (
-            <div id='content' className='peliculas'>
-                <h2 className="subheader">Pliculas</h2>
-                <p>Seleccion de las peliculas de {this.state.nombre}</p>
-                <div>
-                    <button onClick={this.cambiarTitulo}>
-                        Cambiar titulo Batman
-                    </button>
+            <React.Fragment>
+
+                <AppSlider title="PELICULAS"
+                    size="slider-small" />
+
+                <div className='center'>
+
+
+
+                    <div id='content' className='peliculas'>
+                        <p>Seleccion de las peliculas de {this.state.nombre}</p>
+                        <div>
+                            <button onClick={this.cambiarTitulo}>
+                                Cambiar titulo Batman
+                            </button>
+                        </div>
+
+
+                        {/* SIMILAR A LA CONDICION ngIf de ANGULAR CUANDO PERO TIENE ELSE (this.state.favorita.titulo) EXISTA EJECUTA  */}
+                        {/*SI FUERA SOLO IN IF SIN ELSE SE HACE ASI = "this.state.favorita.titulo &&" */}
+                        {
+                            /* this.state.favorita.titulo ? (
+         
+                                 ///*APLICANDO STILOS EN UNA VARIUABLE LOCAL  (pStyle)*/
+                            /* <p className='favorita' style={pStyle}>
+                                 <strong>La Pelicula Favorita es: </strong>
+                                 <span>{this.state.favorita.titulo}</span>
+                             </p>
+                         )
+                             : ( ///*ESTE ES EL ELSE EN REACT*/
+                            /* <p>NO HAY PELICULA A MOSTRAR</p>
+                         )*/
+                        }
+                        {favorita}
+
+
+                        {/*CREAR COMPONENTE PELICULA */}
+                        <div id='articles' className='peliculas'>
+                            {
+                                this.state.Peliculas.map((pelicula, i) => {
+                                    return (
+                                        <Pelicula
+                                            key={i}
+                                            pelicula={pelicula}
+                                            marcarFavorita={this.favorita}
+                                            indice={i}
+                                        />
+                                    )
+                                })
+
+                            }
+                        </div>
+
+                    </div>
+                    <AppSidebar NavBlog="false" />
                 </div>
 
-
-                {/* SIMILAR A LA CONDICION ngIf de ANGULAR CUANDO PERO TIENE ELSE (this.state.favorita.titulo) EXISTA EJECUTA  */}
-                {/*SI FUERA SOLO IN IF SIN ELSE SE HACE ASI = "this.state.favorita.titulo &&" */}
-                {
-                   /* this.state.favorita.titulo ? (
-
-                        ///*APLICANDO STILOS EN UNA VARIUABLE LOCAL  (pStyle)*/
-                       /* <p className='favorita' style={pStyle}>
-                            <strong>La Pelicula Favorita es: </strong>
-                            <span>{this.state.favorita.titulo}</span>
-                        </p>
-                    )
-                        : ( ///*ESTE ES EL ELSE EN REACT*/
-                           /* <p>NO HAY PELICULA A MOSTRAR</p>
-                        )*/             
-                }
-                {favorita}
-
-
-                {/*CREAR COMPONENTE PELICULA */}
-                <div id='articles' className='peliculas'>
-                    {
-                        this.state.Peliculas.map((pelicula, i) => {
-                            return (
-                                <Pelicula
-                                    key={i}
-                                    pelicula={pelicula}
-                                    marcarFavorita={this.favorita}
-                                    indice={i}
-                                />
-                            )
-                        })
-
-                    }
-                </div>
-
-            </div>
-
+            </React.Fragment>
         );
     }
 }
