@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Pelicula extends Component {
 
-    //Funcion que envia a marcarFavoritas que viene del padre le asigna la props.pelicula
+    //Funcion que envia a marcarFavoritas que viene del padre le asigna la props.pelicula ******
     marcar = ()  =>{
         this.props.marcarFavorita(this.props.pelicula, this.props.indice);
     }
