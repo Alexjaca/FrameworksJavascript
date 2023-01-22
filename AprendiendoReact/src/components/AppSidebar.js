@@ -6,7 +6,7 @@ class AppSidebar extends Component{
         return(
             <aside id="sidebar">
                 {/*MUESTRTA EL NAV-BLOG SOLO SI ESTAMOS EN UNA PAGINA QUE NO SEA EL BLOG */}
-                {this.props.NavBlog == "true" &&
+                {this.props.NavBlog === "true" &&
                     <div id="nav-blog" className="sidebar-item">
                     <h3>Puedes hacer esto</h3>
                     <a href="#" className="btn btn-success">Crear artículo</a>

@@ -27,6 +27,9 @@ class Router extends Component {
                         <Route path="/" element={<Peliculas />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog/articulo/:id" element={
+                            <h1>DETALLE DE ARTICULO</h1>
+                        } />
                         <Route path="/formulario" element={<Formulario />} />
                         <Route path="/ruta-prueba" element={<SeccionPruebas />} />
                         <Route path="/segunda-ruta" element={<MiComponente />} />

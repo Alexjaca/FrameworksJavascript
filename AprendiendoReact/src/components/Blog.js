@@ -5,7 +5,6 @@ import AppSlider from './AppSlider';
 import AppSidebar from "./AppSidebar";
 import Articles from "./Articles";
 
-let isBlog = true;
 
 class Blog extends Component {
 

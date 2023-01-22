@@ -6,7 +6,7 @@ const Error = () => {
 
     return (
         <div id='content'>
-            <img src={ImgError} className="img-error" />
+            <img src={ImgError} className="img-error" alt="Error404"/>
             <h1>PAGINA NO ESNCONTRADA</h1>
             <NavLink to="/home">
             <button id="btn-center" className="btn btn-blue" >IR AL INICIO</button>
