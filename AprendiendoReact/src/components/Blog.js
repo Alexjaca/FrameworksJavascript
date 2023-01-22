@@ -17,7 +17,7 @@ class Blog extends Component {
 
         return (
             <div id="blog">
-                <AppSlider title="BLOG DE REACT"
+                <AppSlider title="BLOG DE REACT JS"
                     size="slider-small" />
 
                 <div className="center">
