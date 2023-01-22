@@ -1,32 +1,39 @@
 import React, { Component } from "react";
+
+
 import AppSlider from './AppSlider';
 import AppSidebar from "./AppSidebar";
+import Articles from "./Articles";
 
 let isBlog = true;
 
-class Blog extends Component{
+class Blog extends Component {
 
-    render(){
+    state = {
+        articles: {},
+        status: null
+    }
 
-        return(
+    render() {
+
+        return (
             <div id="blog">
                 <AppSlider title="BLOG DE REACT"
-                            size = "slider-small"/>
+                    size="slider-small" />
 
                 <div className="center">
                     <div id="content">
 
-                        <input type="hidden" name="isblog" value={isBlog}/>
-
-
-                        <h1 className="subheader">BLOG</h1>
                         {/*LISTADO DE ARTICULOS QUE VENDRAN DE LA API REST DE NODE */}
 
-                    </div>   
-                    <AppSidebar isBlog = "true"/>  
+                        <Articles />
+
+
+                    </div>
+                    <AppSidebar isBlog="true" />
                 </div>
-                
-            </div> 
+
+            </div>
 
         );
     }

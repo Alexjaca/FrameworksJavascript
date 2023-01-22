@@ -50,7 +50,7 @@ class Formulario extends Component {
         return (
             <div id="formulario">
 
-                <h1 className="subheader">Formulario</h1>
+                <h1 className="subheader">FORMULARIO</h1>
 
                 {(this.state.user.nombre && this.state.user.apellidos && this.state.user.biografia) &&
                     <div className="DatosUsuario">
@@ -60,8 +60,6 @@ class Formulario extends Component {
                         <p><strong>Genero = </strong>{user.genero}</p>
                     </div>
                 }
-
-
 
                 <div className="center">
                     <div id="content">

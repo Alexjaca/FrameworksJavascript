@@ -40,8 +40,8 @@ class Peliculas extends Component {
 
     }
     //CICLOS DE VIDA EN REACT------------------------------------
-    //componentWillUnmount(), SE INICIA ANTES DE CARGAR LA PAGINA
-    componentWillUnmount() {
+    //componentWillMount(), SE INICIA ANTES DE CARGAR LA PAGINA
+    componentWillMount() {
         //alert("Aqui se va a montar el componente");
     }
 
