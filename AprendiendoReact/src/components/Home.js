@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppSlider from './AppSlider';
 import AppSidebar from "./AppSidebar";
+import Articles from "./Articles";
 
 class Home extends Component {
 
@@ -14,6 +15,10 @@ class Home extends Component {
                 <div className="center">
                     <div id="content">
                         <h1 className="subheader">ULTIMO ARTICULOS</h1>
+
+                        <Articles home='true'>
+
+                        </Articles>
                     </div>
                     <AppSidebar NavBlog = "true"/>  
                 </div>

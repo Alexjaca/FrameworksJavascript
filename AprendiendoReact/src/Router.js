@@ -11,6 +11,7 @@ import AppFooter from './components/AppFooter';
 import Home from './components/Home';
 import Blog from './components/Blog';
 import Formulario from './components/Formulario';
+import Search from './components/Search';
 
 
 class Router extends Component {
@@ -27,6 +28,7 @@ class Router extends Component {
                         <Route path="/" element={<Peliculas />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog/:search" element={<Search />} />
                         <Route path="/blog/articulo/:id" element={
                             <h1>DETALLE DE ARTICULO</h1>
                         } />

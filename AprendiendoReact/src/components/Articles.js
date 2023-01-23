@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom';
 
 import Global from '../Gobal';
 import Image from '../assets/images/nofound.jpg'
+import ImageLoadinf from '../assets/images/loading.gif'
 
 class Articles extends Component {
 
     url = Global.url;
+    home = this.props.home;
+    search = this.props.search;
+    
 
     state = {
         articles: [],
@@ -18,7 +22,17 @@ class Articles extends Component {
 
     //--componentDidMount--Cargame la funcion getArticles antes de cargar la pagina
     componentDidMount() {
-        this.getArticles();
+
+        if(this.home === 'true'){       
+            this.getLastArticles();
+           
+        }else if(this.search && this.search != null){
+            this.getArticlesBySearch(this.search);
+        }
+        else{
+            this.getArticles();
+        }
+     
     }
 
     getArticles = () => {
@@ -31,9 +45,37 @@ class Articles extends Component {
             });
     }
 
+    getLastArticles = () => {
+        axios.get(this.url + "articles/last")
+            .then(res => {
+                this.setState({
+                    articles: res.data.articles,
+                    status: 'success'
+                });
+            });
+    }
+
+    getArticlesBySearch = (search) => {
+        axios.get(this.url + "search/"+search)
+            .then(res => {
+               
+                    this.setState({
+                        articles: res.data.articles,
+                        status: 'success'
+                    });       
+                
+            }).catch(err =>{
+                this.setState({
+                    articles: [],
+                    status: 'success'
+                });
+            });
+    }
+
+
     render() {
 
-        if (this.state.articles.length > 1) {
+        if (this.state.articles.length >= 1) {
 
             var listArticles = this.state.articles.map((article) => {
                 return (
@@ -49,7 +91,7 @@ class Articles extends Component {
                             }
                             </div>
 
-                            <h2>{this.state.articles.title}</h2>
+                            <h2>{article.title}</h2>
                             <span className="date">
                                 <Moment fromNow>{article.Date}</Moment>
                             </span>
@@ -80,6 +122,7 @@ class Articles extends Component {
             return (
                 <div id="articles">
                     <h1 className="subheader">Cargando....</h1>
+                    <img src={ImageLoadinf} alt="Loading" />
                 </div>
             );
         }
