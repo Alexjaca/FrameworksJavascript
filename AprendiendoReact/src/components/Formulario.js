@@ -40,7 +40,7 @@ class Formulario extends Component {
             user: user
         });
 
-        console.log(user);
+        //console.log(user);
     }
 
     render() {

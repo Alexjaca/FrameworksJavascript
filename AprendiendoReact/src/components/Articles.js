@@ -35,6 +35,19 @@ class Articles extends Component {
      
     }
 
+    // componente se ejecuta al recibir nuevos propos en la misma ruta
+    componentWillReceiveProps(nextProps) {
+        if(this.props.search !== nextProps.search) {
+            if (nextProps.home) {
+                this.getLastArticles();
+            } else if (nextProps.search && nextProps.search !== '') {
+                this.getArticlesBySearch(nextProps.search);
+            } else {
+                this.getArticles();
+            }
+        }
+    }
+
     getArticles = () => {
         axios.get(this.url + "articles")
             .then(res => {
@@ -62,7 +75,7 @@ class Articles extends Component {
                     this.setState({
                         articles: res.data.articles,
                         status: 'success'
-                    });       
+                    });    
                 
             }).catch(err =>{
                 this.setState({

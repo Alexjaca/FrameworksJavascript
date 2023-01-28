@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams, Redirect, Navigate } from 'react-router-dom';
 
 
 import SeccionPruebas from './components/SeccionPruebas';
@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Blog from './components/Blog';
 import Formulario from './components/Formulario';
 import Search from './components/Search';
+import Article from './components/Article';
 
 
 class Router extends Component {
@@ -29,9 +30,9 @@ class Router extends Component {
                         <Route path="/home" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/blog/:search" element={<Search />} />
-                        <Route path="/blog/articulo/:id" element={
-                            <h1>DETALLE DE ARTICULO</h1>
-                        } />
+                        <Route path="/blog/articulo/:id" element={<Article/> }/>
+                        <Route path="/redirect/:search" element={<Buscar/>} />
+
                         <Route path="/formulario" element={<Formulario />} />
                         <Route path="/ruta-prueba" element={<SeccionPruebas />} />
                         <Route path="/segunda-ruta" element={<MiComponente />} />
@@ -64,6 +65,12 @@ class Router extends Component {
     }
 
 }
+
+var Buscar = () => {
+    let params = useParams();
+    return(<Navigate to={"/blog/" + params.search}/>);
+}
+
 
 var Parametros = props => {
     let params = useParams();
