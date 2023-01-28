@@ -23,15 +23,11 @@ const Article = () => {
     React.useEffect(() => {
         axios.get(Url + 'article/' + params.id)
             .then((response) => {
-                setArticle(response.data.article);
-                if(article){
-                    status = true;
-                }
-              
+                setArticle(response.data.article);    
             });
     }, []);
 
-    console.log(article);
+        
 
     if (!article) return (
         <div className="center">
@@ -42,7 +38,6 @@ const Article = () => {
             <AppSidebar NavBlog="true" />
         </div>
     );
-
 
     return (
 
@@ -69,6 +64,11 @@ const Article = () => {
                     <p>
                         {article.content}
                     </p>
+                    <div className="buttons">
+                        <a href="#" className="btn btn-success">Editar</a>
+                        <a href="#" className="btn btn-warning">Eliminar</a>
+                    </div>
+
 
                     <div className="clearfix"></div>
                 </article>

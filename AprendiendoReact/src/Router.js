@@ -13,6 +13,7 @@ import Blog from './components/Blog';
 import Formulario from './components/Formulario';
 import Search from './components/Search';
 import Article from './components/Article';
+import CreateArticle from './components/CreateArticle';
 
 
 class Router extends Component {
@@ -31,6 +32,7 @@ class Router extends Component {
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/blog/:search" element={<Search />} />
                         <Route path="/blog/articulo/:id" element={<Article/> }/>
+                        <Route path="/blog/crear" element={<CreateArticle/> }/>
                         <Route path="/redirect/:search" element={<Buscar/>} />
 
                         <Route path="/formulario" element={<Formulario />} />

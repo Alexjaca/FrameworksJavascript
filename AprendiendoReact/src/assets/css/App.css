@@ -206,10 +206,27 @@ body {
 
 .btn-success{
   background: rgb(23, 150, 19);
+  color: white !important;
+  margin-right: 10px;
 }
+
+.btn-warning{
+  background: rgb(236, 118, 8);
+  color: white !important;
+  text-decoration: none;
+  
+}
+
+.btn-warning:hover{
+  background: black;
+  color: white;
+  text-decoration: none !important;
+}
+
 
 .btn-success:hover{
   background:black;
+  text-decoration: none !important;
 }
 
 .btn-blue{
@@ -223,6 +240,13 @@ body {
 #btn-center{
   display: inline;
 
+}
+
+.buttons{
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 40%;
+  
 }
 
 .mid-form{
@@ -242,6 +266,7 @@ body {
 }
 
 input[type="text"],
+input[type="file"],
 textarea{
   width: 100%;
   min-height: 30px;
@@ -254,6 +279,10 @@ textarea{
 input[type="text"]:focus,
 textarea:focus{
   box-shadow: 0px 0px 5px #eee inset;
+}
+
+input[type="submit"]{
+margin-top: 15px;
 }
 
 textarea{

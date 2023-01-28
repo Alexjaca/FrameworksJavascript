@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Navigate, redirect } from "react-router-dom";
+import { Link, Navigate, redirect } from "react-router-dom";
 import Global from "../Gobal";
 import axios from "axios";
 
@@ -54,7 +54,8 @@ class AppSidebar extends Component{
                 {this.props.NavBlog === "true" &&
                     <div id="nav-blog" className="sidebar-item">
                     <h3>Puedes hacer esto</h3>
-                    <a href="#" className="btn btn-success">Crear artículo</a>
+                    <Link to={'/blog/crear'}  className="btn btn-success"> Crear artículo</Link>
+                    
                 </div>
                 }
             
