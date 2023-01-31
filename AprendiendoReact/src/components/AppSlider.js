@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class AppSlider extends Component {
 
@@ -9,7 +10,8 @@ class AppSlider extends Component {
                         <h1>{this.props.title}</h1>
                         {
                             this.props.MsgButton &&
-                            <a href="#" className="btn-white">{this.props.MsgButton}</a>
+                            <Link to={'/blog'} className="btn-white">{this.props.MsgButton}</Link>
+
                         }
                     </div >
 

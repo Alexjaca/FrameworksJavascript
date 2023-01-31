@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import Moment from "react-moment";
 import { useParams } from "react-router-dom";
 import Global from "../Gobal";
@@ -12,7 +12,7 @@ import Image404 from '../assets/images/404.png';
 const Article = () => {
     let Url = Global.url;
     let params = useParams();
-    let status = null;
+    
 
     //useStatees un React Hook que le permite agregar una variable de estado a su componente.
     //const [state, setState] = useState(initialState)
@@ -25,7 +25,7 @@ const Article = () => {
             .then((response) => {
                 setArticle(response.data.article);    
             });
-    }, []);
+    });//,[]
 
         
 
@@ -65,8 +65,8 @@ const Article = () => {
                         {article.content}
                     </p>
                     <div className="buttons">
-                        <a href="#" className="btn btn-success">Editar</a>
-                        <a href="#" className="btn btn-warning">Eliminar</a>
+                        <a className="btn btn-success">Editar</a>
+                        <a className="btn btn-warning">Eliminar</a>
                     </div>
 
 

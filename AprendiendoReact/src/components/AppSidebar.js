@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Link, Navigate, redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Global from "../Gobal";
 import axios from "axios";
 
