@@ -46,11 +46,6 @@ class Peliculas extends Component {
     }
 
 
-    //CICLOS DE VIDA EN REACT------------------------------------
-    //componentDidMount(), SE INICIA LUEGO DE HABERSE MONTADO LA PAGINA
-    componentDidMount() {
-        //alert("Componente cargado con éxito!!!");
-    }
 
     //CICLOS DE VIDA EN REACT------------------------------------
     //componentWillUnmount(), SE INICIA CUNADO ME VOYA  DESMONTAR COMO ES EL CASO DE IR A OTRA RUTA

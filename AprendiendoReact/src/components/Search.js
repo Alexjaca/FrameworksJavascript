@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import AppSlider from './AppSlider';
 import AppSidebar from "./AppSidebar";
 import Articles from "./Articles";

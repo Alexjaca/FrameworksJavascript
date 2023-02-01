@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
+import SimpleReactValidator from 'simple-react-validator';
 import Global from "../Gobal";
 import AppSidebar from "./AppSidebar";
 
@@ -19,6 +20,10 @@ class CreateArticle extends Component {
         selectedFile: null
     };
 
+    componentDidMount(){
+        this.validator = new SimpleReactValidator();    
+    }
+
 
     changedState = () => {
         this.setState({
@@ -28,7 +33,7 @@ class CreateArticle extends Component {
             }
         });
 
-        //console.log(this.state);
+        
     }
 
     saveArticle = (e) => {
@@ -44,34 +49,37 @@ class CreateArticle extends Component {
                     article: res.data.articleStored,
                     status: 'waiting'
                 });
-                console.log(this.state);
+                
 
 
                 //  SUBIR LA IMAGEN
-               /* if (this.state.selectedFile !== null) {
+                if (this.state.selectedFile !== null) {
 
                     //Sacar el Id del articulo Guardado
-                    var articleId = res.data.articleStored._id; //*********hasta aqui bien */
+                    var articleId = res.data.articleStored._id; 
 
                     
                     //Crear form data y añadir fichero
-                    /*const formData = new FormData();
+                    const formData = new FormData();
 
                     formData.append(
                         'file0',  //Nombre del fichero que viene como resibe la api
-                        this.state.selectedFile, //Archivo a guardar
-                        this.state.selectedFile.name//Nombre del archivo a guadrar
+                        this.state.selectedFile //Archivo a guardar
                     );
+                        
+                        //Recorriendo el FormData() para saber lo que tiene adentro
+                    for (var entrie of formData.entries()) {
+                        console.log(entrie[0]); 
+                        console.log(entrie[1]);
+                    }
 
-
-
+          
                     //Peticion ajax
 
                     axios.post(this.url + 'upload-image/' + articleId, formData, { headers: { 'Content-type': 'multipart/form-data' } })
                         .then((res) => {
                             if (res.data.article) {
 
-                                console.log('SUBIENDO IMAGEN');
                                 this.setState({
                                     article: res.data.article,
                                     status: 'success'
@@ -79,7 +87,6 @@ class CreateArticle extends Component {
 
                             } else {
 
-                                console.log('ERROR SUBIENDO IMAGEN');
                                 this.setState({
                                     article: res.data.article,
                                     status: 'failed'
@@ -89,19 +96,15 @@ class CreateArticle extends Component {
 
                         });
 
-
                 } else {
-                    console.log('SUBIENDO IMAGEN 22222');
+                    
                     this.setState({
                         status: 'success'
                     });
                 }
 
-
-*/
-
             }).catch((err) => {
-                console.log('FALLEDDDDD');
+               
                 this.setState({
                     article: null,
                     status: 'failed'
@@ -112,24 +115,22 @@ class CreateArticle extends Component {
 
     ///RECOGE EL EVENTO Y CAPTURA LOS DATOS DE LA IMAGEN*************
     fileChange = (event) => {
+        
         this.setState({
             selectedFile: event.target.files[0]
         });
-        console.log(this.state.selectedFile);
-        console.log(this.state.selectedFile.name);
+     
     }
-
-
 
 
     render() {
 
 
         if (this.state.status === 'success') {
-            console.log(this.state.status);
+            console.log('status en Render = '+this.state.status);
             return (<Navigate to={"/blog"} />);
         } else {
-            console.log(this.state.status);
+            console.log('status en Render = '+this.state.status);
         }
 
 
