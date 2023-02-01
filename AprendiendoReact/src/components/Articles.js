@@ -35,8 +35,21 @@ class Articles extends Component {
      
     }
 
-    // componente se ejecuta al recibir nuevos propos en la misma ruta
-    componentWillReceiveProps(nextProps) {
+    // componente se ejecuta al recibir nuevos props en la misma ruta
+    /*componentWillReceiveProps(nextProps) {
+        if(this.props.search !== nextProps.search) {
+            if (nextProps.home) {
+                this.getLastArticles();
+            } else if (nextProps.search && nextProps.search !== '') {
+                this.getArticlesBySearch(nextProps.search);
+            } else {
+                this.getArticles();
+            }
+        }
+    }*/
+
+    // componente se ejecuta al recibir nuevos props en la misma ruta
+    componentDidUpdate(nextProps){
         if(this.props.search !== nextProps.search) {
             if (nextProps.home) {
                 this.getLastArticles();
@@ -92,7 +105,7 @@ class Articles extends Component {
 
             var listArticles = this.state.articles.map((article) => {
                 return (
-                    <div id="articles"  >
+                    <div id="articles"  key={article._id}>
                         <article className="article-item" id="article-template" key={article._id}>
 
                             <div className="image-wrap">

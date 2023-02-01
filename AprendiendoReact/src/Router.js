@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Routes, useParams, Redirect, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams,Navigate } from 'react-router-dom';
 
 
 import SeccionPruebas from './components/SeccionPruebas';
@@ -14,6 +14,7 @@ import Formulario from './components/Formulario';
 import Search from './components/Search';
 import Article from './components/Article';
 import CreateArticle from './components/CreateArticle';
+import EditArticle from './components/EditArticle';
 
 
 class Router extends Component {
@@ -33,6 +34,7 @@ class Router extends Component {
                         <Route path="/blog/:search" element={<Search />} />
                         <Route path="/blog/articulo/:id" element={<Article/> }/>
                         <Route path="/blog/crear" element={<CreateArticle/> }/>
+                        <Route path="/blog/editar/:id" element={<EditArticle/> }/>
                         <Route path="/redirect/:search" element={<Buscar/>} />
 
                         <Route path="/formulario" element={<Formulario />} />
@@ -67,6 +69,8 @@ class Router extends Component {
     }
 
 }
+
+
 
 var Buscar = () => {
     let params = useParams();

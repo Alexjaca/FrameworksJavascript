@@ -1,25 +1,47 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import SimpleReactValidator from 'simple-react-validator'; //VALIDACIONES
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'; 
 import Global from "../Gobal";
 import AppSidebar from "./AppSidebar";
 
-//VALIDACION DE FORMULARIOS Y ALERTAS
+// 1. RECOGER EL ID DEL ARTICULO DESDE LA URL
 
+// 2. CREAR UN METODO PARA SACAR EL OBJETO DEL BACKEND
 
-class CreateArticle extends Component {
+// 3. RELLENAR EL FORMULARIO CON ESOS DATOS
+
+// 4. ACTUALIZAR EL OBJETO HACIENDO UNA PETICION AL BACKEND
+
+function ObtenerId (){
+    let params = useParams();
+    let id = params.id;
+    return(id);
+}
+
+class EditArticle extends Component {
 
     titleRef = React.createRef();
     contentRef = React.createRef();
     url = Global.url;
+
+    articleId = null;
+    //params = useParams();
+    
 
     state = {
         article: {},
         status: null,
         selectedFile: null
     };
+
+    componentDidMount(){
+        console.log('componentDidMount');
+        this.getArticle(12345);
+        console.log(this.articleId);
+        
+    }
 
     constructor(props) {
         super(props);
@@ -30,6 +52,15 @@ class CreateArticle extends Component {
                 alpha_num_space: 'No puede Escribir caracteres especiales'
             }
         });
+      
+    }
+
+    
+
+    getArticle = (id) =>{
+        console.log(this.ObtenerId);
+        console.log(id);
+        
     }
 
 
@@ -163,7 +194,7 @@ class CreateArticle extends Component {
         return (
             <div className="center">
                 <section id="content">
-                    <h1 className="subheader">CREAR ARTICULO</h1>
+                    <h1 className="subheader">EDITAR ARTICULO</h1>
 
 
                     <form className="mid-form" onSubmit={this.saveArticle} onChange={this.changedState}>
@@ -199,4 +230,14 @@ class CreateArticle extends Component {
     }
 }
 
-export default CreateArticle;
+var BuscarId = () => {
+    //let params = useParams();
+   //let id = params.id;
+   let id = 1;
+   return(id);
+   
+}
+
+
+
+export default EditArticle; 
