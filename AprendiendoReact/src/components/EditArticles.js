@@ -9,23 +9,26 @@ import Swal from 'sweetalert2';
 
 
 
-// 1. RECOGER EL ID DEL ARTICULO DESDE LA URL
 
-// 2. CREAR UN METODO PARA SACAR EL OBJETO DEL BACKEND
 
-// 3. RELLENAR EL FORMULARIO CON ESOS DATOS
 
-// 4. ACTUALIZAR EL OBJETO HACIENDO UNA PETICION AL BACKEND
+
+
+
+
 
 
 
 function EditArticles() {
 
     let url = Global.url;
+    // 1. RECOGER EL ID DEL ARTICULO DESDE LA URL
     const id = useParams().id; // recogiendo lo que llega de la url
     var titleRef = React.createRef();
     var contentRef = React.createRef();
     
+
+    // 2. CREAR UN METODO PARA SACAR EL OBJETO DEL BACKEND
 
     const [article, setArticle] = React.useState(null);
     const [status, setStatus] = React.useState(null);
@@ -45,7 +48,7 @@ function EditArticles() {
     });//,[]
 
 
-
+// 3. RELLENAR EL FORMULARIO CON ESOS DATOS
 
 
 
@@ -59,6 +62,7 @@ function EditArticles() {
         </div>
     );
 
+    // 4. ACTUALIZAR EL OBJETO HACIENDO UNA PETICION AL BACKEND
     function EditArticle(e) {
         e.preventDefault();
         
