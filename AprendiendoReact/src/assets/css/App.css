@@ -336,6 +336,10 @@ textarea{
   text-align: center;
 }
 
+.thumb{
+  width: 150px;
+}
+
 .article-item h2{
   display: block;
   width:100%;
