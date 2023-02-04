@@ -6,11 +6,20 @@ import { createRouter, createWebHistory } from 'vue-router';
 /*MIS COMPONENTES */
 import MiComponente from './components/MiComponente';
 import AppLastArticles from './components/AppLastArticles';
+import AppFormulario from './components/Formulario';
+import Blog from './components/Blog';
+import AppPagina from './components/Pagina';
+import Error from './components/Error';
+
 
 
 const routes = [
-    {path: '/home', component: AppLastArticles},
-    {path: '/micomponente', component: MiComponente}
+    {path: '/', component: AppLastArticles},
+    {path: '/formulario', component: AppFormulario},
+    {path: '/blog', component: Blog},
+    {path: '/pagina/:id', name: 'page',  component: AppPagina},
+    {path: '/micomponente', component: MiComponente},
+    {path: '/:pathMatch(.*)*', component: Error}
 ];
 
 

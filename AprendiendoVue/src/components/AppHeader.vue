@@ -13,16 +13,16 @@
                 <nav id="menu">
                     <ul>
                         <li>
-                            <a href="index.html">Inicio</a>
+                            <RouterLink to="/">Inicio</RouterLink>
                         </li>
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <RouterLink to="/blog">Blog</RouterLink>
                         </li>
                         <li>
-                            <a href="formulario.html">Formulario</a>
+                            <RouterLink to="/formulario">Formulario</RouterLink>
                         </li>
                         <li>
-                            <a href="#">Pagina 1</a>
+                            <RouterLink :to="{name: 'page', params: {id: '21101985'}}">Pagina</RouterLink>
                         </li>
                         <li>
                             <a href="#">Pagina 2</a>
