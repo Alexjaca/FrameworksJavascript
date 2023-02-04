@@ -10,6 +10,7 @@ import AppFormulario from './components/Formulario';
 import Blog from './components/Blog';
 import AppPagina from './components/Pagina';
 import Error from './components/Error';
+import AppPeliculas from './components/Peliculas';
 
 
 
@@ -19,6 +20,7 @@ const routes = [
     {path: '/blog', component: Blog},
     {path: '/pagina/:id', name: 'page',  component: AppPagina},
     {path: '/micomponente', component: MiComponente},
+    {path: '/peliculas', component: AppPeliculas},
     {path: '/:pathMatch(.*)*', component: Error}
 ];
 

@@ -175,6 +175,22 @@ a.router-link-active.router-link-exact-active{
     margin-right: 20px;
 }
 
+.greenyear{
+    background: green !important;
+    color: white !important;
+    padding: 10px !important;
+    width: 111px !important;
+    text-align: center !important;
+}
+
+.redyear{
+    background: red !important;
+    color: white !important;
+    padding: 10px !important;
+    width: 111px !important;
+    text-align: center !important;
+}
+
 #sidebar{
     width: 25%;
     float:left;
@@ -301,6 +317,7 @@ textarea{
 .article-item .image-wrap img{
     height: 100%;
     text-align: center;
+    width: 130px;
 }
 
 .article-item h2{

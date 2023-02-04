@@ -3,6 +3,7 @@
         <h2 class="subheader">PAGINA DE PRUEBA</h2>
         <h3 class="subheader">{{id_desde_url}}</h3>
         <button @click="cambiarNombre()">Cambiar Nombre</button>
+        <button @click="redirigirBlog()">Ir al Blog</button>
         <h2>{{ nombre }}</h2>
 
     </section>
@@ -35,6 +36,9 @@ export default {
         cambiarNombre(){
             this.nombre = 'JOSE ALEXANDER CARDENAS ALVIAREZ'
             console.log(this.nombre);
+        },
+        redirigirBlog(){
+            this.$router.push('/blog');
         }
     }
 }

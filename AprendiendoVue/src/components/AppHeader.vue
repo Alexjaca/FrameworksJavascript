@@ -22,11 +22,14 @@
                             <RouterLink to="/formulario">Formulario</RouterLink>
                         </li>
                         <li>
+                            <RouterLink to="/peliculas">Peliculas</RouterLink>
+                        </li>
+                        <li>
                             <RouterLink :to="{name: 'page', params: {id: '21101985'}}">Pagina</RouterLink>
                         </li>
                         <li>
-                            <a href="#">Pagina 2</a>
-                        </li>                            
+                            <RouterLink to="/micomponente">Pagina 2</RouterLink>
+                        </li>                               
                     </ul>
                 </nav>
 
