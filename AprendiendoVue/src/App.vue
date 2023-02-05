@@ -1,27 +1,18 @@
 cls<template>
   <AppHeader/>
-  <AppSlider/>
-  <div class="center">
     <RouterView></RouterView>
     <!--<AppLastArticles/>-->
-    <AppSidebar/>
-    <div class="clearfix"></div>
-  </div>
 <AppFooter/>
 </template>
 
 <script>
 import AppHeader from './components/AppHeader.vue';
-import AppSlider from './components/AppSlider.vue';
-import AppSidebar from './components/AppSidebar.vue';
 import AppFooter from './components/AppFooter.vue';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppSlider,
-    AppSidebar,
     AppFooter
   }
  

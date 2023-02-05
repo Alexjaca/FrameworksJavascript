@@ -1,29 +1,40 @@
 <template>
-    <section id="content">
-        <h2 class="subheader">PAGINA DE PRUEBA</h2>
-        <h3 class="subheader">{{id_desde_url}}</h3>
-        <button @click="cambiarNombre()">Cambiar Nombre</button>
-        <button @click="redirigirBlog()">Ir al Blog</button>
-        <h2>{{ nombre }}</h2>
+    <div class="general">
+        <div class="center">
+            <section id="content">
+                <h2 class="subheader">PAGINA DE PRUEBA</h2>
+                <h3 class="subheader">{{ id_desde_url }}</h3>
+                <button @click="cambiarNombre()">Cambiar Nombre</button>
+                <button @click="redirigirBlog()">Ir al Blog</button>
+                <h2>{{ nombre }}</h2>
 
-    </section>
+            </section>
+            <AppSidebar />
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </template>
 
 <script>
+import AppSidebar from './AppSidebar.vue';
+
 export default {
     name: 'AppPagina',
+    components: {
+        AppSidebar
+  },
     //COMPONENTES DEL CICLO DE VIDA EN VUE
     //mounted() SE EJECUTA CUANDO EL COMPONENTE HA SIDO MONTADO
     mounted() {
         this.id_desde_url = this.$route.params.id;
         console.log('Componente mounted()--Montado');
-    },created(){
+    }, created() {
         console.log('Componente created()--Creado');
     },
-    updated(){
+    updated() {
         console.log('Componente updated()--Actualizado');
     },
-    unmounted(){
+    unmounted() {
         console.log('Componente unmounted()--Destruido sustituto del destroyed');
     },
     data() {
@@ -32,12 +43,12 @@ export default {
             nombre: 'Alex Cardenas'
         }
     },
-    methods:{
-        cambiarNombre(){
+    methods: {
+        cambiarNombre() {
             this.nombre = 'JOSE ALEXANDER CARDENAS ALVIAREZ'
             console.log(this.nombre);
         },
-        redirigirBlog(){
+        redirigirBlog() {
             this.$router.push('/blog');
         }
     }
