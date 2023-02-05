@@ -36,7 +36,7 @@ export default{
         pasarFavoritaAlPadre(pelicula ){
             console.log('Pasando Favorita al Padre y es= ');
             console.log(pelicula.title);
-            console.log('****************************');
+            console.log('********************************************');
             this.$emit('favorita', pelicula);
 
         }
