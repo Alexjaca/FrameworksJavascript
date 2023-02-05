@@ -333,7 +333,7 @@ var controler = {
 
     search: (req, res) => {
 
-        //Sacar Strinmg a buscar
+        //Sacar Strinmg a buscar ..
         var searchString = req.params.search;
 
         // Find or
