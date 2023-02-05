@@ -16,6 +16,10 @@
                 </span>
                 <a href="#">Leer más</a>
 
+                <input type="button" value="Marcar Favorita"
+                @click="pasarFavoritaAlPadre(pelicula)"
+                />
+
                 <div class="clearfix"></div>
             </article>
 
@@ -26,7 +30,16 @@ export default{
     name: 'AppPelicula',
     props: ['pelicula'],
     mounted(){
-        console.log(this.pelicula);
+        //console.log(this.pelicula);
+    },
+    methods:{
+        pasarFavoritaAlPadre(pelicula ){
+            console.log('Pasando Favorita al Padre y es= ');
+            console.log(pelicula.title);
+            console.log('****************************');
+            this.$emit('favorita', pelicula);
+
+        }
     }
 }
 </script>

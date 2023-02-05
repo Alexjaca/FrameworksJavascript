@@ -2,13 +2,22 @@
     <div class="general">
         <div class="center">
             <section id="content">
-                <h2 class="subheader">PELICULAS</h2>
-
+                <div class="computed"   >
+                    <p v-html="misDatos" ></p>
+                </div>
+                <h2 class="subheader">PELICULAS </h2>
+                {{ $filters.mayuscula($filters.concatenaYear(web,'EL MEJOR AÑO'))}}
+                <div class="favorita" v-if="favorita">
+                    <h3>MI PELICULA FAVORITA ES:</h3>
+                    <h2>{{ favorita.title }}</h2>
+                  
+                </div>
                 <!--Listado articulos-->
                 <div id="articles">
-
-                    <div v-for="pelicula in peliculas" :key="pelicula">
-                        <Pelicula :pelicula='pelicula'>'</Pelicula>
+                    <!--NO LE PONEMOS A LA FUNCION EL haLLegadoPeliculaFavorita() POR QUE YA VIENE EL PARAMETRO DEFINIDO-->
+                    <div v-for="pelicula in peliculasMayuscula" :key="pelicula">
+                        <Pelicula :pelicula='pelicula' v-on:favorita="haLLegadoPeliculaFavorita">'</Pelicula>
+                        <!--se puede usar v-on:favorita o @favorita para decirle que es un metodo-->
                     </div>
 
                 </div>
@@ -30,6 +39,33 @@ export default {
         Pelicula,
         AppSidebar
     },
+    //PROPIEDADADES COMPUTADAS***************************
+    computed:{
+        peliculasMayuscula(){
+            var peliculasMod = this.peliculas;
+            for(var i = 0; i < this.peliculas.length; i++){
+                peliculasMod[i].title = peliculasMod[i].title.toUpperCase();
+            }
+            return peliculasMod;
+        },
+        misDatos(){
+            return this.nombre +' '+ this.apellido+' '+'<br/><strong>Sitio web: <strong/>' +this.web;
+        }
+    },
+    //FILTORS O PIPES ****************************** YA NO SE USA ASI EN VUE 3
+    filters:{
+        mayuscula(value){
+            return value.toUpperCase();
+        }
+    },
+    methods: {
+        haLLegadoPeliculaFavorita(favorita) {
+            console.log('Llegando pelicula favorita al padre y es = ');
+            console.log(favorita.title);
+            console.log('********************************************');
+            this.favorita = favorita;
+        }
+    },
     data() {
         return {
             peliculas: [
@@ -39,7 +75,10 @@ export default {
                 { title: 'Spiderman', year: 2018, image: 'https://sm.ign.com/t/ign_es/review/m/marvels-sp/marvels-spider-man-remastered-for-pc-vs-ps5-performance-revi_ehag.1200.jpg' },
                 { title: 'El Chapulin colorado', year: 1990, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/El_Chapul%C3%ADn_Colorado_logo.svg/1200px-El_Chapul%C3%ADn_Colorado_logo.svg.png' }
             ],
-            prueba: 'HOLA'
+            favorita: null,
+            nombre: 'Alexander',
+            apellido: 'Cardenas',
+            web: 'www.jac.com'
         }
     }
 }

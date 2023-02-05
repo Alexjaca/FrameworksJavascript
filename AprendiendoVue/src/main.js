@@ -35,6 +35,16 @@ const router = createRouter({
 /***Instancia de createApp()***/
 const app = createApp(App);
 
+/*CREANDO FILTROS O PIPES A UTILIZAR */
+app.config.globalProperties.$filters = {
+  mayuscula (value) {
+    return value.toUpperCase();
+  },
+  concatenaYear(value, message){
+    var date = new Date();
+    return value + ' ' + date.getFullYear() + ' ' +message;
+  }
+}
 
 /***Instancia del router y montar la app***/
 app.use(router);
