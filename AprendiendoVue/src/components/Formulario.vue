@@ -8,7 +8,7 @@
                 <form class="mid-form" @submit.prevent="mostrarUsuario()">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" v-model="user.name" />
+                            <input type="text" name="nombre" v-model="user.name" required />
                             
                            <!-- <div v-if="!v$.user.name.required">
                                 Este campo es requerido!!!!!!!
@@ -17,12 +17,20 @@
 
                         <div class="form-group">
                             <label for="apellidos">Apellidos</label>
-                            <input type="text" name="apellidos" v-model="user.surnames" />
+                            <input type="text" name="apellidos" v-model="user.surnames" @change="mostrarUsuario()" required/>
+
+                            <!-- <div v-if="!v$.user.surnames.required">
+                                Este campo es requerido!!!!!!!
+                            </div> -->
                         </div>
 
                         <div class="form-group">
                             <label for="bio">Biografia</label>
-                            <textarea name="bio" v-model="user.bio" ></textarea>
+                            <textarea name="bio" v-model="user.bio"  required></textarea>
+
+                            <!-- <div v-if="!v$.user.bio.required">
+                                Este campo es requerido!!!!!!!
+                            </div> -->
                         </div>
 
                         <div class="form-group radibuttons">
@@ -48,7 +56,7 @@
 import AppSlider from './AppSlider.vue';
 import AppSidebar from './AppSidebar.vue';
 import {required, minLength} from 'vuelidate/lib/validators';
-//import { useVuelidate } from '@vuelidate/core';
+import { useVuelidate } from '@vuelidate/core';
 
 export default {
     name: 'AppFormulario',
@@ -57,9 +65,9 @@ export default {
         AppSidebar
   }, 
   //PARA VUEVALIDATOR
-  /*setup(){
+  setup(){
     return { v$: useVuelidate()};
-  },*/
+  },
   data(){
     return{
         user: {
