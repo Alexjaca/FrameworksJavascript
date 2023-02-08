@@ -1,13 +1,13 @@
 <template>
     <div class="general">
-        <AppSlider texto="Bienvenido al Curso de Vue con Víctor Robles de victorroblesweb.es" btn="true"/>
+        <AppSlider :texto="'Buscando: '+searchParams" btn="false" />
         <div class="center">
             <section id="content">
-                <h2 class="subheader">Últimos artículos</h2>
+                <h2 class="subheader">Articulos Encontrados</h2>
 
-                <!--Listado articulos-->
-                <div id="articles">
-                 <Articles v-bind:articles="articles"></Articles>
+                <div id="articles" v-if="articles">
+
+                    <Articles :articles="articles"></Articles>
 
                 </div>
 
@@ -19,33 +19,36 @@
 </template>
 
 <script>
+import Articles from './Articles.vue';
 import AppSlider from './AppSlider.vue';
 import AppSidebar from './AppSidebar.vue';
-import Articles from './Articles.vue';
-import Global from '../Global';
 import axios from 'axios';
 import { toRaw } from 'vue';
+import Global from '../Global';
+
 
 export default {
-    name: 'AppLastArticles',
+    name: 'AppSearch',
     components: {
         AppSlider,
         AppSidebar,
         Articles
-  },
-  data() {
+    },
+    data() {
         return {
             articles: [],
-            url: Global.url
+            url: Global.url,
+            searchParams: null
         }
     },
     mounted() {
-        this.getLastArticles();
+        this.searchParams = this.$route.params.searchString;
+        this.getArticlesBySearch(this.searchParams);
 
     },
     methods: {
-        getLastArticles() {
-            axios.get(this.url + 'articles/true')
+        getArticlesBySearch(searchString) {
+            axios.get(this.url + 'search/'+ searchString)
                 .then(res => {
                     if (res.data.articles) {
 

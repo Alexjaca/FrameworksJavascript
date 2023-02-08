@@ -1,27 +1,40 @@
 <template>
+    <section>
+        <div id="article-list" v-if="articles && articles.length > 0">
+            <article class="article-item" v-for="article in articles" :key="article._id">
+                <div class="image-wrap">
+                    <img :src="this.url + 'get-image/' + article.image" :alt="article.title" v-if="article.image" />
 
-    <div id="article-list">
-        <article class="article-item" v-for="article in articles" :key="article._id">
-            <div class="image-wrap">
-                <img :src="this.url + 'get-image/' + article.image" :alt="article.title" v-if="article.image" />
+                    <img src="../assets/images/nofound.jpg" :alt="article.title" v-if="!article.image" />
+                </div>
 
-                <img src="../assets/images/nofound.jpg" :alt="article.title" v-if="!article.image" />
-            </div>
+                <h2>{{ article.title }}</h2>
+                <span class="date">
+                    {{$filters.fechaHastaAhora(article.Date)}}
+                </span>
+                <a href="#">{{$filters.mayuscula('Leer más')}}</a>
 
-            <h2>{{ article.title }}</h2>
-            <span class="date">
-                {{ article.Date }}
-            </span>
-            <a href="#">Leer más</a>
+                <div class="clearfix"></div>
+            </article>
+        </div>
 
-            <div class="clearfix"></div>
-        </article>
-    </div>
+        <div v-else-if="articles && articles.length < 1">
+            <p>No hay articulos para mostrar</p>
+
+        </div>
+
+        <div v-else>
+            <p>Cargando......</p>
+            <img src="../assets/images/loading.gif" alt="Loading" />
+        </div>
+
+    </section>
 
 </template>
 
 <script>
 import Global from '../Global';
+
 export default {
     name: 'AppArticles',
     props: ['articles'],

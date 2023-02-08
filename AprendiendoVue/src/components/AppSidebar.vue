@@ -9,8 +9,8 @@
                 <div id="search" class="sidebar-item">
                         <h3>Buscador</h3>
                         <p>Encuentra el artículo que buscas</p>
-                        <form>
-                            <input type="text" name="search" />
+                        <form @submit.prevent="goSearch">
+                            <input type="text" name="search" v-model="searchString" @change="goSearch"/>
                             <input type="submit" name="submit" value="Buscar" class="btn" />
                         </form>
                 </div>
@@ -20,6 +20,18 @@
 
 <script>
 export default{
-    name: 'AppSidebar'
+    name: 'AppSidebar',
+    data(){
+        return{
+            searchString: null
+        }
+    },
+    methods:{
+        goSearch(){
+            console.log(this.searchString);
+            //REDIRIGE A UN TERCER COMPONENTE ANTES DE SEARCH PARA QUE PERMITA LAS BUSQUEDAS DESDE CUALQUIER COMPONENTE
+            this.$router.push('/redirect/'+this.searchString);
+        }
+    }
 }
 </script>
