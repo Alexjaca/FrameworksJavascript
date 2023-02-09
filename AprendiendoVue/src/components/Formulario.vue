@@ -55,8 +55,8 @@
 <script>
 import AppSlider from './AppSlider.vue';
 import AppSidebar from './AppSidebar.vue';
-import {required, minLength} from 'vuelidate/lib/validators';
-import { useVuelidate } from '@vuelidate/core';
+//import {required, minLength} from 'vuelidate/lib/validators';
+//import { useVuelidate } from '@vuelidate/core';
 
 export default {
     name: 'AppFormulario',
@@ -65,9 +65,9 @@ export default {
         AppSidebar
   }, 
   //PARA VUEVALIDATOR
-  setup(){
+  /*setup(){
     return { v$: useVuelidate()};
-  },
+  },*/
   data(){
     return{
         user: {
@@ -77,7 +77,7 @@ export default {
             gender: ''
         }
     }
-  },
+  },/*
   validations:{
         nombre: {
             required,
@@ -91,7 +91,7 @@ export default {
             required,
             minLength: minLength(10)
         }
-  },
+  },*/
   methods: {
     mostrarUsuario(){
         console.log(this.user);

@@ -8,11 +8,11 @@
                     <img src="../assets/images/nofound.jpg" :alt="article.title" v-if="!article.image" />
                 </div>
 
-                <h2>{{ article.title }}</h2>
+                <h2><RouterLink :to="{name:'article', params:{id: article._id}}">{{ article.title }}</RouterLink></h2>
                 <span class="date">
                     {{$filters.fechaHastaAhora(article.Date)}}
                 </span>
-                <a href="#">{{$filters.mayuscula('Leer más')}}</a>
+                <RouterLink :to="{name:'article', params:{id: article._id}}">{{$filters.mayuscula('Leer más')}}</RouterLink>
 
                 <div class="clearfix"></div>
             </article>

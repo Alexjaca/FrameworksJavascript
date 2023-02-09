@@ -239,6 +239,14 @@ a.router-link-active.router-link-exact-active{
     background:black;
 }
 
+.btn-danger{
+    background: rgb(211, 135, 21);
+}
+
+.btn-danger:hover{
+    background:black;
+}
+
 .mid-form{
     width: 50%;
     margin: 0px auto;
@@ -254,6 +262,7 @@ a.router-link-active.router-link-exact-active{
 }
 
 input[type="text"],
+input[type="file"],
 textarea{
     width: 100%;
     min-height: 30px;
@@ -264,6 +273,7 @@ textarea{
 }
 
 input[type="text"]:focus,
+input[type="file"]:focus,
 textarea:focus{
     box-shadow: 0px 0px 5px #eee inset;
 }

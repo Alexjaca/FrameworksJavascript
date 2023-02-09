@@ -23,7 +23,7 @@ import Articles from './Articles.vue';
 import AppSlider from './AppSlider.vue';
 import AppSidebar from './AppSidebar.vue';
 import axios from 'axios';
-import { toRaw } from 'vue';
+//import { toRaw } from 'vue';
 import Global from '../Global';
 
 
@@ -52,7 +52,7 @@ export default {
 
                         this.articles = res.data.articles;
                         // this.article MUESTRA UN OBJETO PROXY toRaw me ayuda a ver el Json Limpio
-                        console.log(toRaw(this.articles));
+                        //console.log(toRaw(this.articles));
 
                     }
                 });

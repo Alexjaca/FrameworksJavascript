@@ -24,7 +24,7 @@ import AppSidebar from './AppSidebar.vue';
 import Articles from './Articles.vue';
 import Global from '../Global';
 import axios from 'axios';
-import { toRaw } from 'vue';
+//import { toRaw } from 'vue';
 
 export default {
     name: 'AppLastArticles',
@@ -51,7 +51,7 @@ export default {
 
                         this.articles = res.data.articles;
                         // this.article MUESTRA UN OBJETO PROXY toRaw me ayuda a ver el Json Limpio
-                        console.log(toRaw(this.articles));
+                        //console.log(toRaw(this.articles));
 
                     }
                 });

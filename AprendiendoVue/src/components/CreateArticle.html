@@ -1,0 +1,38 @@
+<div class="general">
+    <div class="center">
+        <section id="content">
+            <h2 class="subheader">CREAR ARTICULO</h2>
+
+            <form class="mid-form" @submit.prevent="createArticle()">
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" name="titulo" v-model="article.title" required />
+
+                    <!--<div v-if="!v$.article.title.required">
+                            Este campo es requerido!!!!!!!
+                        </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="contenido">Contenido</label>
+                    <textarea name="contenido" v-model="article.content" required></textarea>
+
+                    <!-- <div v-if="!v$.user.bio.required">
+                            Este campo es requerido!!!!!!!
+                        </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" id="file" ref="file" name="file0" v-on:change="fileChange()" />
+
+                </div>
+
+                <div class="clearfix"></div>
+                <input type="submit" value="Registrar" class="btn btn-success" />
+
+            </form>
+
+        </section>
+        <AppSidebar />
+        <div class="clearfix"></div>
+    </div>
+</div>

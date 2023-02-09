@@ -3,7 +3,7 @@
 <aside id="sidebar">
                 <div id="nav-blog" class="sidebar-item">
                     <h3>Puedes hacer esto</h3>
-                    <a href="#" class="btn btn-success">Crear artículo</a>
+                    <a href="#" class="btn btn-success" @click.prevent="crearArticle()">Crear artículo</a>
                 </div>
 
                 <div id="search" class="sidebar-item">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+
 export default{
     name: 'AppSidebar',
     data(){
@@ -31,6 +32,9 @@ export default{
             console.log(this.searchString);
             //REDIRIGE A UN TERCER COMPONENTE ANTES DE SEARCH PARA QUE PERMITA LAS BUSQUEDAS DESDE CUALQUIER COMPONENTE
             this.$router.push('/redirect/'+this.searchString);
+        },
+        crearArticle(){
+            this.$router.push('/crearArticulo');
         }
     }
 }
