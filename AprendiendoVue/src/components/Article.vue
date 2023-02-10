@@ -18,8 +18,11 @@
 
                     <div class="clearfix"></div>
                 </article>
-                <input type="submit" value="EDITAR" class="btn btn-success" />
+                <div >
+                <RouterLink :to="'/editar/'+ Id" class="btn btn-success">Editar</RouterLink>
                 <input type="submit" value="ELIMINAR" class="btn btn-danger" @click="deleteArticle(article._id)" />
+                </div>
+                
             </section>
             <AppSidebar />
             <div class="clearfix"></div>
@@ -41,11 +44,13 @@ export default {
     data() {
         return {
             url: Global.url,
-            article: null
+            article: null,
+            Id: null
         }
     },
     mounted() {
         var articleId = this.$route.params.id;
+        this.Id = articleId;
         this.getArticle(articleId);
 
     },

@@ -17,6 +17,7 @@ import Search from './components/Search';
 import Redirect from './components/Redirect';
 import Article from './components/Article';
 import CreateArticle from './components/CreateArticle';
+import EditArticle from './components/EditArticle';
 
 
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
     {path: '/crearArticulo', component: CreateArticle},
     {path: '/buscar/:searchString', component: Search},
     {path: '/articulo/:id', name:'article', component: Article},
+    {path: '/editar/:id', name:'artediticle', component: EditArticle},
     {path: '/redirect/:searchString', component: Redirect},
     {path: '/pagina/:id', name: 'page',  component: AppPagina},
     {path: '/micomponente', component: MiComponente},

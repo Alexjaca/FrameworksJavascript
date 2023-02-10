@@ -153,6 +153,7 @@ a.router-link-active.router-link-exact-active{
     transition: 300ms all;
 }
 
+
 .btn-white:hover{
     background: #444;
     color:white;
@@ -328,6 +329,10 @@ textarea{
     height: 100%;
     text-align: center;
     width: 130px;
+}
+
+.image-small{
+    width: 150px;
 }
 
 .article-item h2{

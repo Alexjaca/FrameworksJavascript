@@ -1,7 +1,8 @@
 <div class="general">
     <div class="center">
         <section id="content">
-            <h2 class="subheader">CREAR ARTICULO</h2>
+            <h2 class="subheader" v-if="!isEdit" >CREAR ARTICULO</h2>
+            <h2 class="subheader" v-else >EDITAR ARTICULO</h2>
 
             <form class="mid-form" @submit.prevent="createArticle()">
                 <div class="form-group">
@@ -22,12 +23,21 @@
                 </div>
                 <div class="form-group">
                     <label for="imagen">Imagen</label>
+                    <div v-if="isEdit && article.image">
+                        <img
+                        :src="url+'get-image/'+article.image"
+                        :alt="article.title"
+                        class="image-small"
+                        />
+
+                    </div>
                     <input type="file" id="file" ref="file" name="file0" v-on:change="fileChange()" />
 
                 </div>
 
                 <div class="clearfix"></div>
-                <input type="submit" value="Registrar" class="btn btn-success" />
+                <input type="submit" value="Registrar" class="btn btn-success" v-if="!isEdit"/>
+                <input type="submit" value="Editar" class="btn btn-success" v-else/>
 
             </form>
 
